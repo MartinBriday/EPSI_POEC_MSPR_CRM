@@ -1,4 +1,4 @@
-package fr.epsi_poec.MSPR;
+package fr.acme.CRM;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
