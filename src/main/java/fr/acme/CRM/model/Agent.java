@@ -5,9 +5,6 @@ import java.util.*;
 
 public class Agent extends Personne {
 
-    public Agent() {
-    }
-
     private String login;
 
     private String password;
