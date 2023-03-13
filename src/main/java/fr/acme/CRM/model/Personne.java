@@ -39,4 +39,8 @@ public class Personne {
 
     private String numeroRue;
 
+    @ManyToOne
+    @JoinColumn(name = "idEntreprise", nullable = false)
+    private Entreprise entreprise;
+
 }

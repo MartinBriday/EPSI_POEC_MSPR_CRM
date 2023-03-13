@@ -35,6 +35,10 @@ public class Produit {
 
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "idEntreprise", nullable = false)
+    private Entreprise entreprise;
+
     @OneToMany(targetEntity = Commande.class, mappedBy = "produit")
     private List<Commande> commandes = new ArrayList<>();
 

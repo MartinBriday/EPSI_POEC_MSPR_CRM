@@ -36,4 +36,13 @@ public class Entreprise {
 
     private String numeroRue;
 
+    @OneToMany(targetEntity = Agent.class, mappedBy = "entreprise")
+    private List<Agent> agents;
+
+    @OneToMany(targetEntity = Client.class, mappedBy = "entreprise")
+    private List<Client> clients;
+
+    @OneToMany(targetEntity = Produit.class, mappedBy = "entreprise")
+    private List<Produit> produits;
+
 }

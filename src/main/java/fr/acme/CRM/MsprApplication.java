@@ -10,8 +10,6 @@ public class MsprApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MsprApplication.class, args);
-		ProduitServiceImpl produitService = new ProduitServiceImpl();
-		produitService.save(new Produit());
 	}
 
 }
