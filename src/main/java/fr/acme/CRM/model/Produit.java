@@ -1,10 +1,24 @@
 
 package fr.acme.CRM.model;
 
-import java.util.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Produit {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String nom;
@@ -20,5 +34,8 @@ public class Produit {
     private int quantiteStock;
 
     private String description;
+
+    @OneToMany(targetEntity = Commande.class, mappedBy = "produit")
+    private List<Commande> commandes = new ArrayList<>();
 
 }
