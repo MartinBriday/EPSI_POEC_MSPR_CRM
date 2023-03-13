@@ -45,4 +45,13 @@ public class Entreprise {
     @OneToMany(targetEntity = Produit.class, mappedBy = "entreprise")
     private List<Produit> produits;
 
+    public Entreprise(String siren, String nom, Date dateCreation, String codePostal, String ville, String rue, String numeroRue) {
+        this.siren = siren;
+        this.nom = nom;
+        this.dateCreation = dateCreation;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.rue = rue;
+        this.numeroRue = numeroRue;
+    }
 }

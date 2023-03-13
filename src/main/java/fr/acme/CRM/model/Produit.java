@@ -42,4 +42,13 @@ public class Produit {
     @OneToMany(targetEntity = Commande.class, mappedBy = "produit")
     private List<Commande> commandes = new ArrayList<>();
 
+    public Produit(String nom, String marque, String categorie, double prix, double tva, int quantiteStock, String description) {
+        this.nom = nom;
+        this.marque = marque;
+        this.categorie = categorie;
+        this.prix = prix;
+        this.tva = tva;
+        this.quantiteStock = quantiteStock;
+        this.description = description;
+    }
 }

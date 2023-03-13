@@ -43,4 +43,15 @@ public class Personne {
     @JoinColumn(name = "idEntreprise", nullable = false)
     private Entreprise entreprise;
 
+    public Personne(String nom, String prenom, Date dateNaissance, String email, String telephone, String codePostal, String ville, String rue, String numeroRue) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.email = email;
+        this.telephone = telephone;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.rue = rue;
+        this.numeroRue = numeroRue;
+    }
 }

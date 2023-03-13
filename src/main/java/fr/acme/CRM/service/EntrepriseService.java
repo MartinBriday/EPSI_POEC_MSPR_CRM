@@ -8,4 +8,5 @@ public interface EntrepriseService {
 
     public List<Entreprise> get();
     public Entreprise get(int id);
+    public void save(Entreprise entreprise);
 }
