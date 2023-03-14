@@ -1,6 +1,7 @@
 
 package fr.acme.CRM.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -23,6 +24,7 @@ public class Client extends Personne {
 
     private Date dateCreation;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Commande.class, mappedBy = "client")
     private List<Commande> commandes = new ArrayList<>();
 

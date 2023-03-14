@@ -24,7 +24,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
     }
 
     @Override
-    public void save(Entreprise entreprise) {
-        entrepriseRepository.save(entreprise);
+    public Entreprise save(Entreprise entreprise) {
+        return entrepriseRepository.save(entreprise);
     }
 }

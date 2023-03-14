@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href="css/common.css" rel="stylesheet">
+	<link href="/css/common.css" rel="stylesheet">
 
   </head>
   <body>
@@ -39,7 +39,7 @@
 							Numéro de rue
 						</th>
 						<th>
-							Adresse
+							Rue
 						</th>
 						<th>
 							Code Postal
@@ -53,38 +53,7 @@
 					</tr>
 				</thead>
 				<tbody>
-                    <c:forEach var="client" items="${ clients }">
-                        <tr>
-                            <td>
-                                <c:out value="${client.getId()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getNom()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getPrenom()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getDateNaissance()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getTelephone()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getNumeroRue()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getRue()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getCodePostal()}"></c:out>
-                            </td>
-                            <td>
-                                <c:out value="${client.getVille()}"></c:out>
-                            </td>
-                        </tr>
-                        <br>
-                    </c:forEach>
+
 				</tbody>
 			</table>
 			<nav>
@@ -153,8 +122,8 @@
 									
 									<div class="row">
 										<div class="col">
-											<label for="date_naissance" class="form-label">Date naissance</label>
-											<input class="form-control" id="date_naissance" data-id="date_naissance" type="text" placeholder="Date naissance" required/>						
+											<label for="dateNaissance" class="form-label">Date naissance</label>
+											<input class="form-control" id="dateNaissance" data-id="dateNaissance" type="text" placeholder="Date naissance" required/>
 											<div class="invalid-feedback">
 												Date naissance is required.
 											</div>	
@@ -168,12 +137,12 @@
 									
 									<div class="mb-3">
 										<label for="adresse" class="form-label">Adresse</label>
-										<textarea class="form-control" id="adresse" data-id="adresse" rows="4" placeholder="Adresse"></textarea>
+										<textarea class="form-control" id="rue" data-id="rue" type="text" rows="4" placeholder="Rue"></textarea>
 									</div>						
 									
 									<div class="mb-3">
-										<label for="code_postal" class="form-label">Code Postal</label>
-										<input class="form-control" id="code_postal" data-id="code_postal" type="text" placeholder="Code Postal"/>									
+										<label for="codePostal" class="form-label">Code Postal</label>
+										<input class="form-control" id="codePostal" data-id="codePostal" type="text" placeholder="Code Postal"/>
 									</div>											
 
 									<div class="mb-3">
@@ -182,14 +151,8 @@
 							    	</div>				
 									
 									<div class="mb-3" required>
-										<label for="pays">Pays</label>
-										<select class="form-control" id="pays" data-id="pays" required>
-											<option value="1">France</option>
-											<option value="2">Angleterre</option>											
-									  </select>										
-										<div class="invalid-feedback">
-												Pays is required.
-										</div>										  
+										<label for="numeroRue" class="form-label">Numéro rue</label>
+                                        <input class="form-control" id="numeroRue" data-id="numeroRue" type="text" placeholder="Numéro Rue"/>
 									</div>
 					
 							</form>
@@ -214,13 +177,13 @@
 	</div>
 </div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
-	<script src="js/common.js"></script>
-	<script src="js/client.js"></script>
+	<script src="/js/common.js"></script>
+	<script src="/js/client.js"></script>
 
   </body>
 </html>

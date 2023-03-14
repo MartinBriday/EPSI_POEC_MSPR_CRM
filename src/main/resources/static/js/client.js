@@ -76,12 +76,12 @@ class Client {
             <td>${client.id}</td>
             <td>${client.nom}</td>
             <td>${client.prenom}</td>
-            <td>${client.date_naissance}</td>
+            <td>${client.dateNaissance}</td>
             <td>${client.telephone}</td>
-            <td>${client.adresse}</td>
-            <td>${client.code_postal}</td>
+            <td>${client.numeroRue}</td>
+            <td>${client.rue}</td>
+            <td>${client.codePostal}</td>
             <td>${client.ville}</td>
-            <td>${client.pays_display}</td>
             ${this.createEditDeleteButtons(client.id)}
         </tr>`;
     
@@ -103,7 +103,7 @@ class Client {
     delete (clientId, callback) {
         $.ajax({
             type: "DELETE",
-            url: "/test-ajax/client-delete.php?id="+clientId
+            url: "/clients/index/delete/"+clientId
         }).done ((data) => {
             callback (true, data);
         });  
@@ -114,8 +114,10 @@ class Client {
         this.rows = {};
 
         $.ajax({
-            url: "/test-ajax/client-list.php"
-        }).done ((data) => {
+            type: "GET",
+            url: "/clients/index/read",
+            dataType: "json"
+        }).done((data, status) => {
             console.log(data);
             data.forEach ((row) => {
                 this.rows[row.id] = row;
@@ -129,10 +131,10 @@ class Client {
         $.ajax({
             type: "POST",
             dataType: "json",
-            data: JSON.stringify(data),
+            data: data,
             contentType: "application/json",
-            url: "/test-ajax/client-post.php"
-        }).done ((data) => {
+            url: "/clients/index/save"
+        }).done((data) => {
             callback (true, data);
         });      
         
@@ -156,14 +158,14 @@ class Client {
     submitTest () {
         let client = {
             //id: 555,
-            nom : "Bloggs",
-            prenom: "Joe",
-            data_naissance: "14/01/1976",
-            telephone: "1234567",
-            adresse: "14 J",
-            code_postal: "12000",
-            ville: "Test ville",
-            pays: 1
+            nom : "TestNom",
+            prenom: "TestPrenom",
+            dataNaissance: "2000-01-01",
+            telephone: "06000000",
+            numeroRue: "14 J",
+            rue: "Rue de test"
+            code_postal: "01000",
+            ville: "TestVille"
         };
         this.submit(client);
     }

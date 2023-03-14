@@ -1,6 +1,7 @@
 
 package fr.acme.CRM.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +40,7 @@ public class Personne {
 
     private String numeroRue;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idEntreprise", nullable = false)
     private Entreprise entreprise;
