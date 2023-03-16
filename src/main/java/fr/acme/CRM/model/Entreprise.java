@@ -1,12 +1,11 @@
 
 package fr.acme.CRM.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -26,6 +25,7 @@ public class Entreprise {
 
     private String nom;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateCreation;
 
     @Column(length = 5)
@@ -37,15 +37,12 @@ public class Entreprise {
 
     private String numeroRue;
 
-    @JsonIgnore
     @OneToMany(targetEntity = Agent.class, mappedBy = "entreprise")
     private List<Agent> agents;
 
-    @JsonIgnore
     @OneToMany(targetEntity = Client.class, mappedBy = "entreprise")
     private List<Client> clients;
 
-    @JsonIgnore
     @OneToMany(targetEntity = Produit.class, mappedBy = "entreprise")
     private List<Produit> produits;
 

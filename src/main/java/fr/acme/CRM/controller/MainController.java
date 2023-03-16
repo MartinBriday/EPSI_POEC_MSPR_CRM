@@ -1,12 +1,15 @@
 package fr.acme.CRM.controller;
 
+import fr.acme.CRM.model.Agent;
 import fr.acme.CRM.model.Client;
 import fr.acme.CRM.model.Entreprise;
 import fr.acme.CRM.model.Produit;
+import fr.acme.CRM.service.AgentService;
 import fr.acme.CRM.service.ClientService;
 import fr.acme.CRM.service.EntrepriseService;
 import fr.acme.CRM.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -19,6 +22,9 @@ public class MainController {
 
     @Autowired
     private EntrepriseService entrepriseService;
+
+    @Autowired
+    private AgentService agentService;
 
     @Autowired
     private ClientService clientService;
@@ -48,9 +54,20 @@ public class MainController {
         clientService.save(c1);
         clientService.save(c2);
 
+        BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
+        Agent a1 = new Agent("Briday", "Martin", Date.valueOf("1993-08-10"), "martin.briday@epsi.fr", null, null, null, null, null, "bridaym", bcpe.encode("bridaym"), "ADMIN");
+        a1.setEntreprise(e);
+        agentService.save(a1);
+
         e.setProduits(new ArrayList<>(Arrays.asList(p1, p2, p3)));
         e.setClients(new ArrayList<>(Arrays.asList(c1, c2)));
+        e.setAgents(new ArrayList<>(Arrays.asList(a1)));
 
 //        entrepriseService.save(e);
+    }
+
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
     }
 }

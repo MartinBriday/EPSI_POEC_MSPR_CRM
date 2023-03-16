@@ -1,11 +1,11 @@
 
 package fr.acme.CRM.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -25,6 +25,7 @@ public class Personne {
 
     private String prenom;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
 
     private String email;
@@ -40,7 +41,6 @@ public class Personne {
 
     private String numeroRue;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idEntreprise", nullable = false)
     private Entreprise entreprise;

@@ -1,7 +1,6 @@
 
 package fr.acme.CRM.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -10,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -19,12 +19,12 @@ import java.util.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "idClient")
 public class Client extends Personne {
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateCreation;
 
-    @JsonIgnore
     @OneToMany(targetEntity = Commande.class, mappedBy = "client")
     private List<Commande> commandes = new ArrayList<>();
 
