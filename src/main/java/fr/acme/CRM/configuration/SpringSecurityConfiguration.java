@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,18 +27,23 @@ public class SpringSecurityConfiguration {
                 .csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/login", "/init", "/accueil").permitAll()
-//                .requestMatchers("/admin/**").hasAnyRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/", "/init").permitAll()
+//                        .requestMatchers("/clients/**").hasAnyRole("ADMIN", "USER")
+                        .anyRequest().authenticated())
                 .formLogin((form) -> form
-//                        .loginPage("/login").permitAll()
-                        .failureUrl("/login?error=true")
-                        .successForwardUrl("/clients/index"))
+//                        .loginPage("/login")
+                        .defaultSuccessUrl("/clients/index", true)
+//                        .failureUrl("/login?error=true")
+                        .permitAll())
                 .logout(LogoutConfigurer::permitAll)
                 .authenticationProvider(authProvider());
         return http.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/bower_components/**", "/dist/**", "/plugins/**");
     }
 
     @Bean

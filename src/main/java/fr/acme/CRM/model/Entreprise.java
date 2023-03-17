@@ -1,6 +1,7 @@
 
 package fr.acme.CRM.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,12 +38,15 @@ public class Entreprise {
 
     private String numeroRue;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Agent.class, mappedBy = "entreprise")
     private List<Agent> agents;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Client.class, mappedBy = "entreprise")
     private List<Client> clients;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Produit.class, mappedBy = "entreprise")
     private List<Produit> produits;
 

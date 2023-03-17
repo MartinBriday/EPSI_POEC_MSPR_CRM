@@ -160,11 +160,11 @@ class Client {
             //id: 555,
             nom : "TestNom",
             prenom: "TestPrenom",
-            dataNaissance: "2000-01-01",
+            dateNaissance: "2000-01-01",
             telephone: "06000000",
             numeroRue: "14 J",
-            rue: "Rue de test"
-            code_postal: "01000",
+            rue: "Rue de test",
+            codePostal: "01000",
             ville: "TestVille"
         };
         this.submit(client);
