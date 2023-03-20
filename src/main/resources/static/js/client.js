@@ -107,7 +107,6 @@ class Client {
         headers[this.header] = this.token;
 
         $.ajax({
-           
             type: "DELETE",
             headers: headers,
             url: "/clients/index/delete/"+clientId

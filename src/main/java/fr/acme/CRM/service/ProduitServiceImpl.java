@@ -13,9 +13,6 @@ public class ProduitServiceImpl implements ProduitService {
     @Autowired
     private ProduitRepository produitRepository;
 
-    @Autowired
-    private EntrepriseService entrepriseService;
-
     @Override
     public List<Produit> get() {
         return produitRepository.findAll();
@@ -28,7 +25,6 @@ public class ProduitServiceImpl implements ProduitService {
 
     @Override
     public Produit save(Produit produit) {
-        produit.setEntreprise(entrepriseService.get(1));
         return produitRepository.save(produit);
     }
 

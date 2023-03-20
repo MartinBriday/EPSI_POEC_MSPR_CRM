@@ -1,6 +1,7 @@
 package fr.acme.CRM.controller;
 
 import fr.acme.CRM.model.Produit;
+import fr.acme.CRM.service.EntrepriseService;
 import fr.acme.CRM.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class ProduitController {
     @Autowired
     private ProduitService produitService;
 
+    @Autowired
+    private EntrepriseService entrepriseService;
+
     @GetMapping("/index")
     public String getProduitIndex() {
         return "produit_index";
@@ -31,6 +35,7 @@ public class ProduitController {
     @PostMapping("/index/save")
     @ResponseBody
     public ResponseEntity<Produit> saveProduit(@RequestBody Produit produit) {
+        produit.setEntreprise(entrepriseService.get(1));
         return new ResponseEntity<>(produitService.save(produit), HttpStatus.CREATED);
     }
 

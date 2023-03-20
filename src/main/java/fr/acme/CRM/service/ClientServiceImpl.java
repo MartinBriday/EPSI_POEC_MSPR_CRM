@@ -15,9 +15,6 @@ public class ClientServiceImpl implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    @Autowired
-    private EntrepriseService entrepriseService;
-
     @Override
     public List<Client> get() {
         return clientRepository.findAll();
@@ -30,8 +27,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client save(Client client) {
-        client.setEntreprise(entrepriseService.get(1));
-        client.setDateCreation(Date.valueOf(LocalDate.now()));
         return clientRepository.save(client);
     }
 

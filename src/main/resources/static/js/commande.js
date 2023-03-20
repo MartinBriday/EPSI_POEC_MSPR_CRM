@@ -58,7 +58,7 @@ class Commande {
         deleteButtons.on ('click', (e) => {
             let id = $(e.target).parent().data('id');        
             
-            bootbox.confirm ("Are you sure you want to delete this commande ? ", (result) => {
+            bootbox.confirm ("Voulez-vous vraiment supprimer cette commande ? ", (result) => {
                 if (result) {
                     this.delete(id, (e) => {
                        delete this.rows[id];
@@ -74,11 +74,11 @@ class Commande {
 
         let row = `<tr>
             <td>${commande.id}</td>
-            <td>${client.id}</td>
-            <td>${produit.id}</td>
+            <td>${commande.id}</td>
+            <td>${commande.id}</td>
             <td>${commande.dateCreation}</td>
             <td>${commande.dateLivraison}</td>
-            <td>${commande.Quantité_Produit}</td>
+            <td>${commande.quantiteProduit}</td>
             ${this.createEditDeleteButtons(commande.id)}
         </tr>`;
     
@@ -98,10 +98,14 @@ class Commande {
     }
 
     delete (commandeId, callback) {
+
+        var headers = {};
+        headers[this.header] = this.token;
+
         $.ajax({
-           
             type: "DELETE",
-            url: "/test-ajax/commande-delete.php?id="+commandeId
+            headers: headers,
+            url: "/commandes/index/delete/"+commandeId
         }).done ((data) => {
             callback (true, data);
         });  
@@ -112,7 +116,9 @@ class Commande {
         this.rows = {};
 
         $.ajax({
-            url: "/test-ajax/commande-list.php"
+            type: "GET",
+            url: "/xcommandes/index/read",
+            dataType: "json"
         }).done ((data) => {
             console.log(data);
             data.forEach ((row) => {
@@ -123,13 +129,17 @@ class Commande {
     }
     
     submit (data, callback) {
+
+        var headers = {};
+        headers[this.header] = this.token
         
         $.ajax({
             type: "POST",
             dataType: "json",
             data: JSON.stringify(data),
+            headers: headers,
             contentType: "application/json",
-            url: "/test-ajax/commande-post.php"
+            url: "/commandes/index/save"
         }).done ((data) => {
             callback (true, data);
         });      
@@ -151,20 +161,10 @@ class Commande {
 
     }
 
-    submitTest () {
-        let commande = {
-            id: 555,
-            id : 777,
-            id: 222,
-            dateCreation: "14/01/1976",
-            dateLivraison:"14/01/1976",
-            Quantité_Produit: 123456,
-          
-        };
-        this.submit(commande);
-    }
-
     initialize () {
+
+        this.token = $("meta[name='_csrf']").attr("content");
+        this.header = $("meta[name='_csrf_header']").attr("content");
 
         this.rows = {};
 

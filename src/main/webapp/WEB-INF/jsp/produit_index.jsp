@@ -170,10 +170,10 @@
                                 <div class="modal-footer">
 
                                     <button id="save-produit" type="button" class="btn btn-primary">
-                                        Save
+                                        Sauvegarder
                                     </button>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        Close
+                                        Fermer
                                     </button>
 
                                 </div>

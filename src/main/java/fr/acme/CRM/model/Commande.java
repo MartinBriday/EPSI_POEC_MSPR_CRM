@@ -1,6 +1,7 @@
 
 package fr.acme.CRM.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,10 +21,12 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idClient", nullable = false)
     private Client client;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idProduit", nullable = false)
     private Produit produit;
