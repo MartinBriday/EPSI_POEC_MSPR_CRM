@@ -18,7 +18,7 @@ class Produit {
             this.dialog = new bootstrap.Modal(document.getElementById('produit-modal'));
         }
         this.clearDialogFields();
-        if (produitId !== undefined && ptoduitId !== null) {
+        if (produitId !== undefined && produitId !== null) {
             let produit = this.rows[produitId];
             let fields = $(this.produitForm).find("[data-id]");
             fields.each ((index, field) => {
@@ -58,7 +58,7 @@ class Produit {
         deleteButtons.on ('click', (e) => {
             let id = $(e.target).parent().data('id');        
             
-            bootbox.confirm ("Are you sure you want to delete this produit ? ", (result) => {
+            bootbox.confirm ("Voulez-vous vraiment supprimer ce produit ? ", (result) => {
                 if (result) {
                     this.delete(id, (e) => {
                        delete this.rows[id];
@@ -75,13 +75,13 @@ class Produit {
 
         let row = `<tr>
             <td>${produit.id}</td>
-            <td>${produit.Nom}</td>
-            <td>${produit.Marque}</td>
-            <td>${produit.Catégorie}</td>
-            <td>${produit.Prix}</td>
-            <td>${produit.TVA}</td>
-            <td>${produit.Quantité_Stock}</td>
-            <td>${produit.Description}</td>
+            <td>${produit.nom}</td>
+            <td>${produit.marque}</td>
+            <td>${produit.categorie}</td>
+            <td>${produit.prix}</td>
+            <td>${produit.tva}</td>
+            <td>${produit.quantiteStock}</td>
+            <td>${produit.description}</td>
            
             ${this.createEditDeleteButtons(produit.id)}
         </tr>`;
@@ -102,10 +102,15 @@ class Produit {
     }
 
     delete (produitId, callback) {
+
+        var headers = {};
+        headers[this.header] = this.token;
+
         $.ajax({
            
             type: "DELETE",
-            url: "/test-ajax/produit-delete.php?id="+produitId
+            headers: headers,
+            url: "/produits/index/delete/"+produitId
         }).done ((data) => {
             callback (true, data);
         });  
@@ -116,9 +121,10 @@ class Produit {
         this.rows = {};
 
         $.ajax({
-            url: "/test-ajax/produit-list.php"
+            type: "GET",
+            url: "/produits/index/read",
+            dataType: "json"
         }).done ((data) => {
-            console.log(data);
             data.forEach ((row) => {
                 this.rows[row.id] = row;
             });
@@ -127,13 +133,17 @@ class Produit {
     }
     
     submit (data, callback) {
+
+        var headers = {};
+        headers[this.header] = this.token
         
         $.ajax({
             type: "POST",
             dataType: "json",
             data: JSON.stringify(data),
+            headers: headers,
             contentType: "application/json",
-            url: "/test-ajax/produit-post.php"
+            url: "/produits/index/save"
         }).done ((data) => {
             callback (true, data);
         });      
@@ -155,23 +165,10 @@ class Produit {
 
     }
 
-    submitTest () {
-        let produit = {
-            id: 555,
-            Nom: "Bloggs",
-            Marque: "Joe",
-            Catégorie: "14/01/1976",
-            Prix: "1234567",
-            TVA: "14 J",
-            Quantité_Stock: "12000",
-            Description: "Test ville",
-          
-           
-        };
-        this.submit(produit);
-    }
-
     initialize () {
+
+        this.token = $("meta[name='_csrf']").attr("content");
+        this.header = $("meta[name='_csrf_header']").attr("content");
 
         this.rows = {};
 
