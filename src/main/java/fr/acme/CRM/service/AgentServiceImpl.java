@@ -13,6 +13,9 @@ public class AgentServiceImpl implements AgentService {
     @Autowired
     private AgentRepository agentRepository;
 
+    @Autowired
+    private EntrepriseService entrepriseService;
+
     @Override
     public List<Agent> get() {
         return agentRepository.findAll();
@@ -30,6 +33,7 @@ public class AgentServiceImpl implements AgentService {
 
     @Override
     public void save(Agent agent) {
+        agent.setEntreprise(entrepriseService.get(1));
         agentRepository.save(agent);
     }
 

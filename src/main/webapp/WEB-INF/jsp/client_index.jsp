@@ -7,6 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_parameter" content="${_csrf.parameterName}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link href="/css/common.css" rel="stylesheet">
@@ -98,10 +101,7 @@
 						</div>
 						<div class="modal-body">
 							<form class="row g-3" id="client-form" novalidate>
-				
-									<input class="form-control" id="clientId" data-id="id" type="hidden"/>									
-				
-									
+									<input class="form-control" id="clientId" data-id="id" type="hidden"/>
 									<div class="row">
 										<div class="col">
 											<label for="nom" class="form-label">Nom</label>

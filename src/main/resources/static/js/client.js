@@ -101,8 +101,13 @@ class Client {
     }
 
     delete (clientId, callback) {
+
+        var headers = {};
+        headers[this.header] = this.token;
+
         $.ajax({
             type: "DELETE",
+            headers: headers,
             url: "/clients/index/delete/"+clientId
         }).done ((data) => {
             callback (true, data);
@@ -127,14 +132,19 @@ class Client {
     }
     
     submit (data, callback) {
-        
+
+        var headers = {};
+        headers[this.header] = this.token;
+
         $.ajax({
             type: "POST",
             dataType: "json",
-            data: data,
+            data: JSON.stringify(data),
+            headers: headers,
             contentType: "application/json",
             url: "/clients/index/save"
-        }).done((data) => {
+        }).done((data, status) => {
+            console.log(data)
             callback (true, data);
         });      
         
@@ -156,6 +166,8 @@ class Client {
     }
 
     submitTest () {
+        this.token = $("meta[name='_csrf']").attr("content");
+        this.header = $("meta[name='_csrf_header']").attr("content");
         let client = {
             //id: 555,
             nom : "TestNom",
@@ -171,6 +183,9 @@ class Client {
     }
 
     initialize () {
+
+        this.token = $("meta[name='_csrf']").attr("content");
+        this.header = $("meta[name='_csrf_header']").attr("content");
 
         this.rows = {};
 
