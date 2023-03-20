@@ -77,11 +77,12 @@ class Client {
             <td>${client.nom}</td>
             <td>${client.prenom}</td>
             <td>${client.dateNaissance}</td>
+            <td>${client.email}</td>
             <td>${client.telephone}</td>
-            <td>${client.numeroRue}</td>
-            <td>${client.rue}</td>
             <td>${client.codePostal}</td>
             <td>${client.ville}</td>
+            <td>${client.rue}</td>
+            <td>${client.numeroRue}</td>
             ${this.createEditDeleteButtons(client.id)}
         </tr>`;
     
@@ -106,6 +107,7 @@ class Client {
         headers[this.header] = this.token;
 
         $.ajax({
+           
             type: "DELETE",
             headers: headers,
             url: "/clients/index/delete/"+clientId
@@ -122,8 +124,7 @@ class Client {
             type: "GET",
             url: "/clients/index/read",
             dataType: "json"
-        }).done((data, status) => {
-            console.log(data);
+        }).done ((data) => {
             data.forEach ((row) => {
                 this.rows[row.id] = row;
             });
@@ -134,8 +135,8 @@ class Client {
     submit (data, callback) {
 
         var headers = {};
-        headers[this.header] = this.token;
-
+        headers[this.header] = this.token
+        
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -143,8 +144,7 @@ class Client {
             headers: headers,
             contentType: "application/json",
             url: "/clients/index/save"
-        }).done((data, status) => {
-            console.log(data)
+        }).done ((data, status) => {
             callback (true, data);
         });      
         
@@ -163,23 +163,6 @@ class Client {
         this.submit(client, callback);
 
 
-    }
-
-    submitTest () {
-        this.token = $("meta[name='_csrf']").attr("content");
-        this.header = $("meta[name='_csrf_header']").attr("content");
-        let client = {
-            //id: 555,
-            nom : "TestNom",
-            prenom: "TestPrenom",
-            dateNaissance: "2000-01-01",
-            telephone: "06000000",
-            numeroRue: "14 J",
-            rue: "Rue de test",
-            codePostal: "01000",
-            ville: "TestVille"
-        };
-        this.submit(client);
     }
 
     initialize () {
