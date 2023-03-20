@@ -62,8 +62,8 @@
                         <thead>
                             <div class="toolbar">
                                 <a class="btn btn-primary bn53 "> Client </a>
-                                <a href="produit.html"><button class="btn btn-primary  ">Produit  </button></a>
-                                <a href="commande.html"><button class="btn btn-primary "> Commande </button></a>
+                                <a href="/produits/index"><button class="btn btn-primary  ">Produit  </button></a>
+                                <a href="/commandes/index"><button class="btn btn-primary "> Commande </button></a>
                                 <button class="btn btn-primary "> Statistique </button>
                             </div>
                             </br>
