@@ -58,7 +58,7 @@ class Client {
         deleteButtons.on ('click', (e) => {
             let id = $(e.target).parent().data('id');        
             
-            bootbox.confirm ("Are you sure you want to delete this client ? ", (result) => {
+            bootbox.confirm ("Voulez-vous vraiment supprimer ce client ? ", (result) => {
                 if (result) {
                     this.delete(id, (e) => {
                        delete this.rows[id];
