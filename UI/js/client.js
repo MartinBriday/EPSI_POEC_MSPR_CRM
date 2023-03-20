@@ -76,12 +76,13 @@ class Client {
             <td>${client.id}</td>
             <td>${client.nom}</td>
             <td>${client.prenom}</td>
-            <td>${client.date_naissance}</td>
+            <td>${client.dateNaissance}</td>
+            <td>${client.Email}</td>
             <td>${client.telephone}</td>
-            <td>${client.adresse}</td>
             <td>${client.code_postal}</td>
             <td>${client.ville}</td>
-            <td>${client.pays_display}</td>
+            <td>${client.rue}</td>
+            <td>${client.NumeroRue}</td>
             ${this.createEditDeleteButtons(client.id)}
         </tr>`;
     
@@ -102,6 +103,7 @@ class Client {
 
     delete (clientId, callback) {
         $.ajax({
+           
             type: "DELETE",
             url: "/test-ajax/client-delete.php?id="+clientId
         }).done ((data) => {
@@ -155,15 +157,16 @@ class Client {
 
     submitTest () {
         let client = {
-            //id: 555,
+            id: 555,
             nom : "Bloggs",
             prenom: "Joe",
-            data_naissance: "14/01/1976",
+            dateNaissance: "14/01/1976",
+            Email:"aaa@gmail.com",
             telephone: "1234567",
-            adresse: "14 J",
             code_postal: "12000",
             ville: "Test ville",
-            pays: 1
+            rue: "saint charles",
+            NumeroRue:"6"
         };
         this.submit(client);
     }

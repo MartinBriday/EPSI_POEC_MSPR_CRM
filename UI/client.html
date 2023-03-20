@@ -1,5 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+	<style>
+		table {
+		  width: 100%;
+		  border-collapse: collapse;
+		}
+		table, th, td {
+		  border: 1px solid black;
+		}
+		thead {
+		  background-color: cadetblue;
+		  color: #ffffff;
+		}
+		th {
+		  text-align: center;
+		  height: 50px;
+		}
+		tbody tr:nth-child(odd) {
+		  background: #ffffff;
+		}
+		tbody tr:nth-child(even) {
+		  background: #f4f4f4;
+		}
+	  </style>
+	<div class="loop-wrapper">
+		<div class="mountain"></div>
+		<div class="hill"></div>
+		<div class="tree"></div>
+		<div class="tree"></div>
+		<div class="tree"></div>
+		<div class="rock"></div>
+		<div class="truck"></div>
+		<div class="wheels"></div>
+	  </div> 
+	  <div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,78 +46,27 @@
 	<link href="css/common.css" rel="stylesheet">
 
   </head>
+  
+</br>
+&nbsp;
   <body>
 
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-hover" id="client-table">
+			<table class="tab" id="client-table">
+			
 				<thead>
-					<tr>
-						<th>
-							#
-						</th>
-						<th>
-							Nom
-						</th>
-						<th>
-							Prenom
-						</th>
-						<th>
-							Date naissance
-						</th>
-						<th>
-							Telephone
-						</th>
-						<th>
-							Adresse
-						</th>
-						<th>
-							Code Postal
-						</th>
-						<th>
-							Ville
-						</th>
-						<th>
-							Pays
-						</th>
-						<th>
-
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-							
-				</tbody>
-			</table>
-			<nav>
-				<ul class="pagination">
-					<li class="page-item">
-						<a class="page-link" href="#">Previous</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">4</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">5</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</nav>
-
-
-			<a href="#" role="button" class="btn btn-primary add-button">Add</a>
+				 
+					<div class="toolbar">
+						<a class="btn btn-primary bn53 "> Client </a>
+    					<a href="produit.html"><button class="btn btn-primary  ">Produit  </button></a>
+						<a href="commande.html"><button class="btn btn-primary "> Commande </button></a>
+    					<button class="btn btn-primary "> Statistique </button>
+    					
+					</div>
+				</br>
+				<a href="#" role="button" class="btn btn-primary add-button">Ajouter Client</a>
 			
 			<div class="modal fade" id="client-modal" tabindex="-1" aria-labelledby="modal-header">
 				<div class="modal-dialog">
@@ -122,42 +105,44 @@
 									
 									<div class="row">
 										<div class="col">
-											<label for="date_naissance" class="form-label">Date naissance</label>
-											<input class="form-control" id="date_naissance" data-id="date_naissance" type="text" placeholder="Date naissance" required/>						
+											<label for="date_naissance" class="form-label">DateNaissance</label>
+											<input class="form-control" id="Date Naissance" data-id="date_naissance" type="text" placeholder="Date naissance" required/>						
 											<div class="invalid-feedback">
 												Date naissance is required.
 											</div>	
 										</div>		
 										
 										<div class="col">
-											<label for="telephone" class="form-label">Telephone</label>
-											<input class="form-control" id="telephone" data-id="telephone" type="text" placeholder="Telephone">						
+											<label for="Email" class="form-label">Email</label>
+											<input class="form-control" id="Email" data-id="Email" type="text" placeholder="Email">						
 										</div>		
 									</div>
-									
 									<div class="mb-3">
-										<label for="adresse" class="form-label">Adresse</label>
-										<textarea class="form-control" id="adresse" data-id="adresse" rows="4" placeholder="Adresse"></textarea>
-									</div>						
-									
+										<label for="Telephone" class="form-label">Telephone</label>
+										<textarea class="form-control" id="Telephone" data-id="Telephone" rows="4" placeholder="Telephone"></textarea>
+									</div>	
 									<div class="mb-3">
-										<label for="code_postal" class="form-label">Code Postal</label>
-										<input class="form-control" id="code_postal" data-id="code_postal" type="text" placeholder="Code Postal"/>									
-									</div>											
+										<label for="code_postal" class="form-label">code_postal</label>
+										<textarea class="form-control" id="code_postal" data-id="code_postal" rows="4" placeholder="code_postal"></textarea>
+									</div>																
 
 									<div class="mb-3">
 										<label for="ville" class="form-label">Ville</label>
 										<input class="form-control" id="ville" data-id="ville" type="text" placeholder="Ville"/>									
-							    	</div>				
+							    	</div>	
+									<div class="mb-3">
+										<label for="rue" class="form-label">rue</label>
+										<input class="form-control" id="rue" data-id="rue" type="text" placeholder="rue"/>									
+									</div>				
 									
 									<div class="mb-3" required>
-										<label for="pays">Pays</label>
-										<select class="form-control" id="pays" data-id="pays" required>
-											<option value="1">France</option>
-											<option value="2">Angleterre</option>											
-									  </select>										
+										<label for="NumeroRue">NumeroRue</label>
+										<div class="mb-3">
+											
+											<input class="form-control" id="NumeroRue" data-id="NumeroRue" type="text" placeholder="NumeroRue"/>									
+										</div>										
 										<div class="invalid-feedback">
-												Pays is required.
+												Numero-Rue is required.
 										</div>										  
 									</div>
 					
@@ -178,6 +163,52 @@
 				</div>
 				
 			</div>
+		</br>
+				&nbsp;
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							Nom
+						</th>
+						<th>
+							Prenom
+						</th>
+						<th>
+							Date naissance
+						</th>
+						<th>
+							Email
+						</th>
+						<th>
+							Telephone
+						</th>
+						<th>
+							Code Postal
+						</th>
+						<th>
+							Ville
+						</th>
+						<th>
+							Rue
+						</th>
+						<th>
+							Numero-Rue
+						</th>
+						<th>
+
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+							
+				</tbody>
+			</table>
+			
+
+
+			
 			
 		</div>
 	</div>
