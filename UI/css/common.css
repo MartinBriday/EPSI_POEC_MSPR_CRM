@@ -197,12 +197,13 @@ body {
   background: transparent;
 }
 .bn53 {
-  background-color: #156237;
+  background-color: goldenrod;
   padding: 7px;
   width: 110px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   animation: bn53bounce 4s infinite;
   cursor: pointer;
+  border-color: goldenrod;
 }
 
 @keyframes bn53bounce {
@@ -244,3 +245,24 @@ body {
   font-size: 12px;
   margin-left: 50px;
 }
+.bn62 {
+  color: white;
+  background-color: brown;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 11em;
+  font-size: medium;
+  font-weight: 500;
+  border-color: brown;
+}
+button:hover {
+   background-color:gainsboro  !important;
+  
+  }
+a:hover {
+    background-color:gainsboro !important;
+   
+   }

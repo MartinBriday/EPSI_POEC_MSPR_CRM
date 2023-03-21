@@ -59,14 +59,14 @@
 				<thead>
 				 
 					<div class="toolbar">
-						<a href ="client.html" class="btn btn-primary "> Client </a>
-    					<a href="produit.html"><button class="btn btn-primary  ">Produit  </button></a>
+						<a href ="client.html" class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Client </a>
+    					<a href="produit.html"><button class="btn btn-primary  " style="background-color: cadetblue; border-color: cadetblue;">Produit  </button></a>
 						<button class="btn btn-primary bn53 "> Commande </button>
-    					<button class="btn btn-primary "> Statistique </button>
+    					<button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistique </button>
     					
 					</div>
 				</br>
-				<a href="#" role="button" class="btn btn-primary add-button">Ajouter Commande</a>
+				<a href="#" role="button" class="btn btn-primary add-button bn62">Ajouter Commande</a>
 			
 			<div class="modal fade" id="commande-modal" tabindex="-1" aria-labelledby="modal-header">
 				<div class="modal-dialog">
@@ -103,10 +103,19 @@
 										</div>		
 								    </div>
 									
-									<div class="row">
+									<div class="row">                                       
 										<div class="col">
-											<label for="date_naissance" class="form-label">ID_Produit</label>
-											<input class="form-control" id="ID_Produit" data-id="ID_Produit" type="text" placeholder="Date naissance" required/>						
+											<label  id="ID_Produit" data-id="ID_Produit" type="text" placeholder="Date naissance" required>ID_Produit</label>
+											<select name="pets" id="pet-select" class="form-control" style="margin-top:7px">
+												<option value=""> choose an option</option>
+												<option value="dog">Dog</option>
+												<option value="cat">Cat</option>
+												<option value="hamster">Hamster</option>
+												<option value="parrot">Parrot</option>
+												<option value="spider">Spider</option>
+												<option value="goldfish">Goldfish</option>
+																					 </select>
+										
 											<div class="invalid-feedback">
 												Date naissance is required.
 											</div>	
@@ -153,9 +162,7 @@
 						<th>
 							ID
 						</th>
-						<th>
-							N°commande
-						</th>
+						
 						<th>
 							ID_Client
 						</th>
