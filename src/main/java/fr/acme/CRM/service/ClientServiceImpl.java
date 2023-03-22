@@ -5,6 +5,8 @@ import fr.acme.CRM.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -24,13 +26,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void save(Client client) {
-        clientRepository.save(client);
+    public Client save(Client client) {
+        return clientRepository.save(client);
     }
 
     @Override
-    public void update(Client client) {
-        clientRepository.save(client);
+    public Client update(Client client) {
+        return clientRepository.save(client);
     }
 
     @Override

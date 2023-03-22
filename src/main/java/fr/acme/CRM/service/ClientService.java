@@ -9,7 +9,7 @@ public interface ClientService {
 
     public List<Client> get();
     public Client get(int id);
-    public void save(Client client);
-    public void update(Client client);
+    public Client save(Client client);
+    public Client update(Client client);
     public void delete(int id);
 }

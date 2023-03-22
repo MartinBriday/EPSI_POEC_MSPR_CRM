@@ -8,4 +8,7 @@ public interface CommandeService {
 
     public List<Commande> get();
     public List<Commande> get(int id);
+    public Commande save(Commande commande);
+    public Commande update(Commande commande);
+    public void delete(int id);
 }

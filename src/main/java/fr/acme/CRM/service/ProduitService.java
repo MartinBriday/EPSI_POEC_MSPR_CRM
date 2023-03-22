@@ -8,7 +8,7 @@ public interface ProduitService {
 
     public List<Produit> get();
     public Produit get(int id);
-    public void save(Produit produit);
-    public void update(Produit produit);
+    public Produit save(Produit produit);
+    public Produit update(Produit produit);
     public void delete(int id);
 }

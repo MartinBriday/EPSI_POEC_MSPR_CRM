@@ -24,13 +24,13 @@ public class ProduitServiceImpl implements ProduitService {
     }
 
     @Override
-    public void save(Produit produit) {
-        produitRepository.save(produit);
+    public Produit save(Produit produit) {
+        return produitRepository.save(produit);
     }
 
     @Override
-    public void update(Produit produit) {
-        produitRepository.save(produit);
+    public Produit update(Produit produit) {
+        return produitRepository.save(produit);
     }
 
     @Override

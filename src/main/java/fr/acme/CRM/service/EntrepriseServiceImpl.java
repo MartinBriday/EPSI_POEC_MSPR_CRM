@@ -22,4 +22,9 @@ public class EntrepriseServiceImpl implements EntrepriseService {
     public Entreprise get(int id) {
         return entrepriseRepository.findById(id).get();
     }
+
+    @Override
+    public Entreprise save(Entreprise entreprise) {
+        return entrepriseRepository.save(entreprise);
+    }
 }
