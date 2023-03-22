@@ -266,3 +266,34 @@ a:hover {
     background-color:gainsboro !important;
    
    }
+
+.block{
+  width: 60%;
+  height: 203%;
+  border: none;
+  background: white;
+}
+.deco-image{
+  width: 40%;
+height: 61%;
+border: none;
+position: absolute;
+left: 60%;;
+}
+.titre{
+  color: cornflowerblue;
+  text-align: center;
+text-decoration: overline underline;
+position: relative;
+top: 20%;
+}
+.parag{
+  font-style: oblique;
+color: darkgoldenrod;
+text-align: center;
+position: relative;
+top: 30%;
+margin: 20px 120px;
+    padding: 3px;
+    border: 0px solid #999;
+}
