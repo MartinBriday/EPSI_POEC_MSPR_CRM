@@ -71,4 +71,9 @@ public class MainController {
     public String getLogin(Model model) {
         return "login";
     }
+
+    @GetMapping("/accueil")
+    public String getAccueil() {
+        return "accueil";
+    }
 }

@@ -35,7 +35,7 @@
 		<div class="wheels"></div>
 	</div>
 	  
-    <div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div>
+    <a href="/accueil"><div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div></a>
     <head>
         <title>ACME - Clients</title>
         <meta charset="utf-8">
@@ -61,13 +61,13 @@
                     <table class="tab" id="client-table">
                         <thead>
                             <div class="toolbar">
-                                <a class="btn btn-primary bn53 "> Client </a>
-                                <a href="/produits/index"><button class="btn btn-primary  ">Produit  </button></a>
-                                <a href="/commandes/index"><button class="btn btn-primary "> Commande </button></a>
-                                <button class="btn btn-primary "> Statistique </button>
+                                <a class="btn btn-primary bn53 "> Clients </a>
+                                <a href="/produits/index"><button  class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Produits </button></a>
+                                <a href="/commandes/index"><button  class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Commandes </button></a>
+                                <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
                             </div>
                             </br>
-                            <a href="#" role="button" class="btn btn-primary add-button">Ajouter Client</a>
+                            <a href="#" role="button" class="btn btn-primary add-button bn62">Ajouter Client</a>
                             </br>
                             &nbsp;
                             <tr>

@@ -34,7 +34,7 @@
 		<div class="truck"></div>
 		<div class="wheels"></div>
     </div>
-    <div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div>
+    <a href="/accueil"><div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div></a>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,13 +61,13 @@
                         <thead>
 
                             <div class="toolbar">
-                                <a href ="/clients/index" class="btn btn-primary "> Client </a>
-                                <a href="/produits/index"><button class="btn btn-primary  ">Produit  </button></a>
-                                <button class="btn btn-primary bn53 "> Commande </button>
-                                <button class="btn btn-primary "> Statistique </button>
+                                <a href ="/clients/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Clients </button></a>
+                                <a href="/produits/index"><button   class="btn btn-primary  " style="background-color: cadetblue; border-color: cadetblue;"> Produits </button></a>
+                                <button class="btn btn-primary bn53 "> Commandes </button>
+                                <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
                             </div>
                             </br>
-                            <a href="#" role="button" class="btn btn-primary add-button">Ajouter Commande</a>
+                            <a href="#" role="button" class="btn btn-primary add-button bn62">Ajouter Commande</a>
                             </br>
                             &nbsp;
                             <tr>
