@@ -1,5 +1,7 @@
 package fr.acme.CRM;
 
+import fr.acme.CRM.model.Produit;
+import fr.acme.CRM.service.ProduitServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
