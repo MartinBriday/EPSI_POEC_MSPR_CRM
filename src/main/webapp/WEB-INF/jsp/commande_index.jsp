@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <style>
@@ -89,8 +90,14 @@
                                 <th>
                                     Quantité Achetée
                                 </th>
+                                <th>
+
+                                </th>
                             </tr>
                         </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
 
                     <div class="modal fade" id="commande-modal" tabindex="-1" aria-labelledby="modal-header">
@@ -118,7 +125,12 @@
 
                                             <div class="col">
                                                 <label for="idProduit" class="form-label">ID Produit</label>
-                                                <input class="form-control" id="idProduit" data-id="idProduit" type="text" placeholder="ID Produit" required/>
+                                                <select name="idProduit" id="idProduit" data-id="idProduit" class="form-control" style="margin-top:7px">
+                                                    <option value=""> Choisir un produit</option>
+                                                    <c:forEach items="${produits}" var="produit">
+                                                        <option value="${produit.getId()}">${produit.getNom()}</option>
+                                                    </c:forEach>
+                                                </select>
                                                 <div class="invalid-feedback">
                                                     ID Produit is required.
                                                 </div>
@@ -132,7 +144,7 @@
 
                                         <div class="mb-3">
                                             <label for="dateLivraison" class="form-label">Date Livraison</label>
-                                            <input class="form-control" id="dateLivraison" data-id="dateLivraison" rows="4" placeholder="Adresse">
+                                            <input class="form-control" id="dateLivraison" data-id="dateLivraison" rows="4" placeholder="Date Livraison">
                                         </div>
 
                                         <div class="mb-3">

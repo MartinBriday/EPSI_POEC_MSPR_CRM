@@ -63,7 +63,7 @@
                             <div class="toolbar">
 						        <a href ="/clients/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Clients </button></a>
                                 <button class="btn btn-primary add-button-prod bn53"> Produits </button>
-                                <a href="/commanddes/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Commandes </button></a>
+                                <a href="/commandes/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Commandes </button></a>
                                 <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
                             </div>
 

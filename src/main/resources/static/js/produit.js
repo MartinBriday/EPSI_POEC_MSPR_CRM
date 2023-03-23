@@ -125,6 +125,7 @@ class Produit {
             url: "/produits/index/read",
             dataType: "json"
         }).done ((data) => {
+            console.log(data);
             data.forEach ((row) => {
                 this.rows[row.id] = row;
             });

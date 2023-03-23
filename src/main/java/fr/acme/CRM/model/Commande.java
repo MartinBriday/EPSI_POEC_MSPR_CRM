@@ -2,6 +2,7 @@
 package fr.acme.CRM.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,10 +22,16 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Transient
+    private int idClient;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idClient", nullable = false)
     private Client client;
+
+    @Transient
+    private int idProduit;
 
     @JsonIgnore
     @ManyToOne
@@ -39,4 +46,11 @@ public class Commande {
 
     private int quantiteProduit;
 
+    public Commande(Client client, Produit produit, Date dateCreation, Date dateLivraison, int quantiteProduit) {
+        this.client = client;
+        this.produit = produit;
+        this.dateCreation = dateCreation;
+        this.dateLivraison = dateLivraison;
+        this.quantiteProduit = quantiteProduit;
+    }
 }
