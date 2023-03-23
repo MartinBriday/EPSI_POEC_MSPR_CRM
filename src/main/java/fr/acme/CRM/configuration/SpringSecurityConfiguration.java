@@ -27,13 +27,15 @@ public class SpringSecurityConfiguration {
                 .csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
+                .anonymous()
+                .and()
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/init").permitAll()
+                        .requestMatchers("/", "/init", "/accueil").permitAll()
 //                        .requestMatchers("/clients/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated())
                 .formLogin((form) -> form
 //                        .loginPage("/login")
-                        .defaultSuccessUrl("/clients/index", true)
+                        .defaultSuccessUrl("/accueil", true)
 //                        .failureUrl("/login?error=true")
                         .permitAll())
                 .logout(LogoutConfigurer::permitAll)

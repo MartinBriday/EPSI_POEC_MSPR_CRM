@@ -74,8 +74,8 @@ class Commande {
 
         let row = `<tr>
             <td>${commande.id}</td>
-            <td>${commande.id}</td>
-            <td>${commande.id}</td>
+            <td>${commande.idClient}</td>
+            <td>${commande.idProduit}</td>
             <td>${commande.dateCreation}</td>
             <td>${commande.dateLivraison}</td>
             <td>${commande.quantiteProduit}</td>
@@ -117,7 +117,7 @@ class Commande {
 
         $.ajax({
             type: "GET",
-            url: "/xcommandes/index/read",
+            url: "/commandes/index/read",
             dataType: "json"
         }).done ((data) => {
             console.log(data);

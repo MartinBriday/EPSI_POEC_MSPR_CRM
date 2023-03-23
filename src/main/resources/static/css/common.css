@@ -197,12 +197,13 @@ body {
   background: transparent;
 }
 .bn53 {
-  background-color: #156237;
+  background-color: goldenrod;
   padding: 7px;
   width: 110px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   animation: bn53bounce 4s infinite;
   cursor: pointer;
+  border-color: goldenrod;
 }
 
 @keyframes bn53bounce {
@@ -243,4 +244,55 @@ body {
   width: 90%;
   font-size: 12px;
   margin-left: 50px;
+}
+.bn62 {
+  color: white;
+  background-color: brown;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 11em;
+  font-size: medium;
+  font-weight: 500;
+  border-color: brown;
+}
+button:hover {
+   background-color:gainsboro  !important;
+
+  }
+a:hover {
+    background-color:gainsboro !important;
+
+   }
+.block{
+  width: 60%;
+  height: 203%;
+  border: none;
+  background: white;
+}
+.deco-image{
+  width: 40%;
+height: 61%;
+border: none;
+position: absolute;
+left: 60%;;
+}
+.titre{
+  color: cornflowerblue;
+  text-align: center;
+text-decoration: overline underline;
+position: relative;
+top: 20%;
+}
+.parag{
+  font-style: oblique;
+color: darkgoldenrod;
+text-align: center;
+position: relative;
+top: 30%;
+margin: 20px 120px;
+    padding: 3px;
+    border: 0px solid #999;
 }

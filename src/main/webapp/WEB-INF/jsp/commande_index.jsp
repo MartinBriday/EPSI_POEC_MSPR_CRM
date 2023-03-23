@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <style>
@@ -34,7 +35,7 @@
 		<div class="truck"></div>
 		<div class="wheels"></div>
     </div>
-    <div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div>
+    <a href="/accueil"><div class="textt" style="font-size: 50px;/*! top: ; *//*! margin-top: ; */position: absolute;top: 30px;/*! text-decoration: underline overline #FF3028; *//*! text-underline-offset: 20px; */color: darkcyan;">ACME</div></a>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,13 +62,13 @@
                         <thead>
 
                             <div class="toolbar">
-                                <a href ="/clients/index" class="btn btn-primary "> Client </a>
-                                <a href="/produits/index"><button class="btn btn-primary  ">Produit  </button></a>
-                                <button class="btn btn-primary bn53 "> Commande </button>
-                                <button class="btn btn-primary "> Statistique </button>
+                                <a href ="/clients/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Clients </button></a>
+                                <a href="/produits/index"><button   class="btn btn-primary  " style="background-color: cadetblue; border-color: cadetblue;"> Produits </button></a>
+                                <button class="btn btn-primary bn53 "> Commandes </button>
+                                <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
                             </div>
                             </br>
-                            <a href="#" role="button" class="btn btn-primary add-button">Ajouter Commande</a>
+                            <a href="#" role="button" class="btn btn-primary add-button bn62">Ajouter Commande</a>
                             </br>
                             &nbsp;
                             <tr>
@@ -89,8 +90,14 @@
                                 <th>
                                     Quantité Achetée
                                 </th>
+                                <th>
+
+                                </th>
                             </tr>
                         </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
 
                     <div class="modal fade" id="commande-modal" tabindex="-1" aria-labelledby="modal-header">
@@ -118,7 +125,12 @@
 
                                             <div class="col">
                                                 <label for="idProduit" class="form-label">ID Produit</label>
-                                                <input class="form-control" id="idProduit" data-id="idProduit" type="text" placeholder="ID Produit" required/>
+                                                <select name="idProduit" id="idProduit" data-id="idProduit" class="form-control" style="margin-top:7px">
+                                                    <option value=""> Choisir un produit</option>
+                                                    <c:forEach items="${produits}" var="produit">
+                                                        <option value="${produit.getId()}">${produit.getNom()}</option>
+                                                    </c:forEach>
+                                                </select>
                                                 <div class="invalid-feedback">
                                                     ID Produit is required.
                                                 </div>
@@ -132,7 +144,7 @@
 
                                         <div class="mb-3">
                                             <label for="dateLivraison" class="form-label">Date Livraison</label>
-                                            <input class="form-control" id="dateLivraison" data-id="dateLivraison" rows="4" placeholder="Adresse">
+                                            <input class="form-control" id="dateLivraison" data-id="dateLivraison" rows="4" placeholder="Date Livraison">
                                         </div>
 
                                         <div class="mb-3">
