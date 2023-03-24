@@ -58,27 +58,26 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="tab" id="client-table">
-                        <thead>
-                            <div class="toolbar">
-                                <a  href="/clients/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Clients </button></a>
-                                <a href="/produits/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Produits </button></a>
-                                <a href="/commandes/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Commandes </button></a>
-                                <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
-                            </div>
-                        </thead>
-                        <tbody>
-                            <img src="/images/111.png" class="deco-image">
-                            </br>
-                            <div class="block">
-                                <span><h2 class="titre">Customer Relationship Management</h2></span>
+                    <div class="toolbar">
+                        <a  href="/clients/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Clients </button></a>
+                        <a href="/produits/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Produits </button></a>
+                        <a href="/commandes/index"><button   class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Commandes </button></a>
+                        <button class="btn btn-primary " style="background-color: cadetblue; border-color: cadetblue;"> Statistiques </button>
+                    </div>
+                    </br>
+                    <div>
+                        <img src="/images/111.png" class="deco-image"/>
+                    </div>
+                    </br>
+                    <div class="block">
+                        <span><h2 class="titre">Customer Relationship Management</h2></span>
 
-                                <p class="parag">La gestion de la relation client, ou gestion des relations avec la clientèle,
-                                    est l'ensemble des outils et techniques destinés à tenir compte des souhaits et des attentes des clients et des prospects,
-                                    afin de les satisfaire et de les fidéliser en leur offrant ou proposant des services.</p>
-                            </div>
-                        </tbody>
-                    </table>
+                        <p class="parag">
+                            La gestion de la relation client, ou gestion des relations avec la clientèle,
+                            est l'ensemble des outils et techniques destinés à tenir compte des souhaits et des attentes des clients et des prospects,
+                            afin de les satisfaire et de les fidéliser en leur offrant ou proposant des services.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
